@@ -1,0 +1,46 @@
+<head>
+  <title>myaccount</title>
+</head>
+
+<body>
+  {{> login}}
+</body>
+
+<template name="login">
+  <h1>login</h1>
+
+  {{#if currentUser}}
+  	{{> loggedInForm}}
+	{{else}}
+  		{{#if loggingIn}}
+  			<p>logging in ...</p>
+  		{{else}}
+  			{{#if creatingAccount}}
+  				{{> newAccountForm}}
+				{{else}}
+					{{> loginForm}}
+  			{{/if}}
+  		{{/if}}
+  {{/if}}
+</template>
+
+<template name="loggedInForm" >
+	<p>logged in as {{currentUser.username}}</p>
+	<button id="退出">logout</button>
+</template>
+
+<template name="newAccountForm" >
+	<input type="text" id="email" placeholder="email" />
+	<input type="text" id="name" placeholder="name" />
+	<input type="text" id="username" placeholder="username" />
+	<input type="text" id="password" placeholder="password" />
+	<button id="建账户">Create</button>
+	<p id="转向登录界面">(login)</p>
+</template>
+
+<template name="loginForm" >
+	<input type="text" id="username" placeholder="username" />
+	<input type="text" id="password" placeholder="password" />
+	<button id="登录">Log In</button>
+	<p id="转向新建账户界面">(Create Account)</p>
+</template>

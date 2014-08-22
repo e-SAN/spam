@@ -1,0 +1,20 @@
+<head>
+  <title>booklist</title>
+</head>
+
+<body>
+  {{> list}}
+</body>
+
+<template name="list">
+  <input type="text" id="text" />
+  <ul class = "list-unstyled">
+  	{{#each items}}
+  		{{> item}}
+	{{/each}}
+  </ul>
+</template>
+
+<template name="item">
+	<li>{{this.text}}</li>
+</template>
